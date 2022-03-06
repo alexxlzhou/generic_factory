@@ -69,6 +69,10 @@ std::unique_ptr<WidgetView> view =
 
 Note that this is just an example, I am not making any GUI system and I have never written the other functions. A working code used for testing is part of this Github repository.
 
+# Generic Factory
+
+Recursive factory allow the class to be registered recursively. See macro defined in recursive_factory.hpp and test in test_recursive.cpp. In the header file, use DECLARE_RECURSIVE_REGISTER_FACTORY and in the cpp file use DEFINE_RECURSIVE_REGISTER_FACTORY. Or one can use RECURSIVE_REGISTER_FACTORY in a seperate file.
+
 ## The idea
 
 The factory usually needs to be defined in its own source and header. Also, adding new classes requires remembering they have to be added into the factory as well (because it doesn’t follow the single responsibility principle by acting as some sort of virtual constructor of the common parent class).

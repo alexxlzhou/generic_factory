@@ -13,13 +13,14 @@ class GenericFactory {
 
 	GenericFactory() = default; // No need to forbid copying or moving, because it's impossible to obtain an instance from outside
 
+public:
 	static GenericFactory &getGenericFactory()
 	{
 		static GenericFactory factory;
 		return factory;
 	}
 
-public:
+	static const std::unordered_map<std::string, std::function<std::unique_ptr<Parent>(Args...)>>& getChildren() { return getGenericFactory()._children; }
 
 	/*!
 	* \brief Registers a constructor of a possible child
